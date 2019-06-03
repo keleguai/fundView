@@ -1,5 +1,5 @@
 <template>
-  <md-card class="md-elevation-24" md-with-hover>
+  <md-card>
     <md-card-content>
 
 
@@ -66,5 +66,7 @@
 </script>
 
 <style scoped>
-
+.md-card{
+  box-shadow: none;
+}
 </style>

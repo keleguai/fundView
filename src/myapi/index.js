@@ -40,8 +40,8 @@ export default {
     return page<=lastPage&&page>0? '':'md-invalid'
   },
   returnTop: function (id_name) {
-    document.body.scrollTop = document.getElementById(id_name).offsetTop;
-    document.documentElement.scrollTop = document.getElementById(id_name).offsetTop
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
   },
   code: {
     success: 100,

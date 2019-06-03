@@ -81,12 +81,16 @@
           // 设置用户类型
           sessionStorage.setItem("token", res.token);
           sessionStorage.setItem("type", res.data.type);
-          _this.$router.push("/")
-            _this.$myapi.get("/user_info/me", null, function (res) {
-              _this.user_info = res.data
-              res.data.bankCardNumber = res.data.bankCardNumber.split('-')
-              _this.$store.commit('setUserInfo',res.data)
-            })
+          if(window.history.length <= 1){
+            _this.$router.push('/');
+          }else {
+            _this.$router.go(-2)
+          }
+          _this.$myapi.get("/user_info/me", null, function (res) {
+            _this.user_info = res.data;
+            res.data.bankCardNumber = res.data.bankCardNumber.split('-');
+            _this.$store.commit('setUserInfo', res.data)
+          })
         })
       },
     },

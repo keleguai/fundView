@@ -13,12 +13,16 @@
     </md-dialog>
     <md-app style="background-color: white;">
       <md-app-toolbar style="background-color: white" v-if="!$store.state.isAndroid">
-        <md-tabs md-alignment="centered">
-          <md-tab id="tab-home" md-label="首页" to="/"></md-tab>
-          <md-tab id="tab-next" md-label="基金" to="/all-fund"></md-tab>
-          <md-tab id="tab-aly" md-label="排行榜" to="/rank"></md-tab>
-          <md-tab id="tab-game" md-label="小钱包" to="/mymoney"></md-tab>
-          <md-tab id="tab-stop-stock" md-label="停牌表" to="/stop-stock"></md-tab>
+        <md-tabs md-alignment="centered" md-sync-route>
+          <template slot="md-tab" slot-scope="{ tab }">
+            <md-icon>{{tab.icon}}</md-icon>{{ tab.label }}<i class="badge" v-if="tab.data.badge" >{{ tab.data.badge }}</i>
+          </template>
+          <md-tab id="tab-home" md-label="首页" to="/" md-icon="home" style="color: #555!important;"></md-tab>
+          <md-tab id="tab-next" md-label="基金" to="/all-fund" md-icon="spa"></md-tab>
+          <md-tab id="tab-aly" md-label="排行榜" to="/rank" md-icon="call_made"></md-tab>
+          <md-tab id="tab-game" md-label="小钱包" to="/mymoney" :md-icon="$store.state.isLogin?'lock_open':'lock'" :md-disabled="$store.state.isLogin?false:true"></md-tab>
+          <md-tab id="tab-stop-stock" md-label="停牌表" to="/stop-stock" md-icon="looks"></md-tab>
+          <md-tab id="tab-notifications" md-label="消息" md-icon="notifications" :md-disabled="$store.state.isLogin?false:true" :md-template-data="{ badge: newPosts }" @click="clearNewPosts"></md-tab>
         </md-tabs>
         <div class="md-toolbar-section-end" style="padding-left: 10px">
           <div v-if="!($store.state.isLogin)">
@@ -38,11 +42,12 @@
                   <img :src="$store.state.user.info.photoUrl">
                 </md-avatar>
               </md-button>
-              <md-menu-content>
-                <md-menu-item to="/edit">
-                  <span>              <md-icon>person</md-icon>编辑个人信息</span>
+              <md-menu-content style="box-shadow: none">
+                <md-menu-item to="/edit" >
+                    <md-icon>edit</md-icon><span>编辑个人信息
+                  </span>
                 </md-menu-item>
-                <md-menu-item to="" v-on:click="logout">
+                <md-menu-item v-on:click="logout">
                   <md-icon>directions_run</md-icon>
                   <span>登出</span>
                 </md-menu-item>
@@ -83,7 +88,7 @@
 
     </md-app>
     <router-view v-if="!$store.state.isAndroid"/>
-    <footer style="background-color: white;padding: 30px;margin-top: 40px">
+    <footer style="background-color: white;padding: 30px;margin-top: 32px">
       <p>©2018-2019 zhaijitong. All rights reserved.</p>
       <p>作者：金证实习第二小组全体成员（尹浩然，门荣伟，韦韩，李子烁，周海昕，符真榜）</p>
       <p>技术交流群：<a href="#">966420562</a></p>
@@ -106,10 +111,26 @@
       return {
         nextImg: null,
         text: null,
-        menuVisible: false
+        menuVisible: false,
+        newPosts: 0,
       }
     },
+    mounted(){
+      setInterval(this.getNotifications,30000)
+    },
     methods: {
+      getNotifications(){
+        if(this.$store.state.isLogin){
+          let _this = this
+          this.$myapi.get("/comment/notification/not_read/me",{},function (res) {
+            _this.newPosts = res.data.count
+          })
+        }
+      },
+      clearNewPosts(){
+        this.newPosts = 0
+        this.$router.push('/notifications')
+      },
       changeImgs() {
         let imgs = ['/static/bk/1.jpg', '/static/bk/2.jpg', '/static/bk/3.jpg', '/static/bk/4.jpg', '/static/bk/5.jpg', '/static/bk/6.jpg', '/static/bk/7.jpg', '/static/bk/8.jpg', '/static/bk/9.jpg', '/static/bk/10.jpg', '/static/bk/11.jpg', '/static/bk/12.jpg', '/static/bk/13.jpg', '/static/bk/14.jpg', '/static/bk/15.jpg', '/static/bk/16.jpg', '/static/bk/17.jpg', '/static/bk/18.jpg', '/static/bk/19.jpg'];
         if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) { //移动端
@@ -190,7 +211,6 @@
   }
 
   .md-card {
-    margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 5px;
   }
@@ -302,6 +322,24 @@
   .my-raised {
     background-color: rgba(10, 10, 0, .1);
     border-radius: 7px;
+  }
+  .badge {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: #448aff;
+    border-radius: 100%;
+    color: #fff;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: -.05em;
+    font-family: 'Roboto Mono', monospace;
   }
 
 

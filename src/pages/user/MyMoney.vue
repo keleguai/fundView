@@ -83,10 +83,9 @@
 
       </md-dialog-content>
     </md-dialog>
-    <div class="md-layout md-alignment-top-center">
+    <div class="md-layout md-alignment-top-center md-gutter">
       <div
-        class="md-layout-item md-large-size-15 md-medium-size-15 md-size-15 md-small-size-100 md-xsmall-size-100"
-        style="margin-top: 20px">
+        class="md-layout-item md-large-size-20 md-medium-size-20 md-size-20 md-small-size-100 md-xsmall-size-100">
         <md-list>
           <md-list-item style="border-bottom: 1px solid #f4f4f4;">
             <md-icon class="md-primary" v-show="user_flag">done</md-icon>
@@ -106,30 +105,32 @@
         </md-list>
       </div>
 
-      <div class="md-layout-item md-large-size-60 md-medium-size-60 md-size-60 md-small-size-100 md-xsmall-size-100"
-           style="margin-left: 20px">
-        <md-card>
+      <div class="md-layout-item md-large-size-55 md-medium-size-55 md-size-55 md-small-size-100 md-xsmall-size-100"
+      >
+        <md-card style="margin-top: 0px">
           <md-card-content id="top">
             <div>
-              <div class="md-layout md-gutter md-alignment-top-center"
-                   style="margin-top: 10px;border-bottom: 1px solid #f4f4f4; ">
-                <div class="md-layout-item md-large-size-30 md-medium-size-30 md-small-size-30 md-xsmall-size-30"
-                     style="border-right: 1px solid #f4f4f4;">
-                  <p style="text-align: center">总价值</p>
-                  <p style="text-align: center;font-size: 18px;color: #555">{{myMoney.toFixed(2)}}元</p>
+              <!--<md-card class="md-primary">-->
+                <div class="md-layout md-gutter md-alignment-top-center md-primary"
+                     style="margin-top: 10px;border-bottom: 1px solid #f4f4f4; ">
+                  <div class="md-layout-item md-large-size-30 md-medium-size-30 md-small-size-30 md-xsmall-size-30"
+                       style="border-right: 1px solid #f4f4f4;">
+                    <p style="text-align: center">总价值</p>
+                    <p style="text-align: center;font-size: 18px;color: #555">{{myMoney.toFixed(2)}}元</p>
+                  </div>
+                  <div class="md-layout-item md-large-size-30 md-medium-size-30 md-small-size-30 md-xsmall-size-30"
+                       style="border-right: 1px solid #f4f4f4;">
+                    <p style="text-align: center">昨日收益</p>
+                    <p style="text-align: center;font-size: 18px;color: #555">{{yestodayGetMoney.toFixed(2)}}元</p>
+                  </div>
+                  <div class="md-layout-item md-large-size-30 md-medium-size-30 md-small-size-30 md-xsmall-size-30">
+                    <p style="text-align: center">历史收益率</p>
+                    <p
+                      :style="(rate*100-100)>=0?'text-align: center;color: red;font-size: 18px':'text-align: center;color: green;font-size: 18px'">
+                      {{(rate*100-100).toFixed(2)}}%</p>
+                  </div>
                 </div>
-                <div class="md-layout-item md-large-size-30 md-medium-size-30 md-small-size-30 md-xsmall-size-30"
-                     style="border-right: 1px solid #f4f4f4;">
-                  <p style="text-align: center">昨日收益</p>
-                  <p style="text-align: center;font-size: 18px;color: #555">{{yestodayGetMoney.toFixed(2)}}元</p>
-                </div>
-                <div class="md-layout-item md-large-size-30 md-medium-size-30 md-small-size-30 md-xsmall-size-30">
-                  <p style="text-align: center">历史收益率</p>
-                  <p
-                    :style="(rate*100-100)>0?'text-align: center;color: red;font-size: 18px':'text-align: center;color: green;font-size: 18px'">
-                    {{(rate*100-100).toFixed(2)}}%</p>
-                </div>
-              </div>
+              <!--</md-card>-->
 
 
               <div>
@@ -142,9 +143,9 @@
                 </h1>
                 <template v-if="!funds.length">
                   <md-empty-state
-                    md-icon="devices_other"
-                    md-label="这里空空如也"
-                    md-description="嘤嘤嘤">
+                    md-icon="refresh"
+                    md-label="无结果"
+                    md-description="或许被小可爱吃掉了">
                   </md-empty-state>
                 </template>
                 <template v-else v-for="(fund,index) in funds">
@@ -174,17 +175,22 @@
                     <div class="md-layout-item md-large-size-30 md-medium-size-30 md-small-size-30 md-xsmall-size-30">
                       <p class="li" v-show="fund.timeBuying">购买时间：<b>{{ $myapi.parseMyDate(fund.timeBuying)}}</b></p>
                       <p class="li" v-show="fund.sellTime">卖出时间：<b>{{ $myapi.parseMyDate(fund.sellTime/10)}}</b></p>
-                      <p class="li" v-show="!user_flag&&!fund.sellTime">状态：<b style="color: #555">{{fund.cancel?"已撤销":"" + !fund.cancel&&fund.confirmSign?"已成交":"买入待确认价值"}}</b>
+                      <p class="li" v-show="!user_flag&&!fund.sellTime">状态：<b style="color: #555">{{fund.cancel?"已撤销":""
+                        + !fund.cancel&&fund.confirmSign?"已成交":"买入待确认价值"}}</b>
                       </p>
-                      <p class="li" v-show="!user_flag&&fund.sellTime">状态：<b style="color: #555">{{fund.cancel?"已撤销":"" + !fund.cancel&&fund.confirmSign?"已成交":"卖出待确认净值"}}</b>
+                      <p class="li" v-show="!user_flag&&fund.sellTime">状态：<b style="color: #555">{{fund.cancel?"已撤销":""
+                        + !fund.cancel&&fund.confirmSign?"已成交":"卖出待确认净值"}}</b>
                       </p>
-                      <a class="li" v-show="!user_flag&&fund.sellTime&&(fund.confirmSign==0&&!fund.cancel)" style="text-align: right;float: left" v-on:click="cancelShow(fund.orderId,true)">撤销</a>
+                      <a class="li" v-show="!user_flag&&fund.sellTime&&(fund.confirmSign==0&&!fund.cancel)"
+                         style="text-align: right;float: left" v-on:click="cancelShow(fund.orderId,true)">撤销</a>
                       <p class="li" v-show="fund.allMoney">购买金额：<b>{{fund.allMoney}}</b>元</p>
-                      <a class="li" v-show="!user_flag&&!fund.sellTime&&(fund.confirmSign==0&&!fund.cancel)" style="text-align: right;float: left" v-on:click="cancelShow(fund.orderId,false)">撤销</a>
+                      <a class="li" v-show="!user_flag&&!fund.sellTime&&(fund.confirmSign==0&&!fund.cancel)"
+                         style="text-align: right;float: left" v-on:click="cancelShow(fund.orderId,false)">撤销</a>
                       <p class="li" style="color: #555" v-show="fund.thisFundShare*fund.willMoney">
                         现在总价值：{{(fund.thisFundShare*fund.willMoney).toFixed(2)}}元</p>
 
-                      <a class="li" v-on:click="sell(index)" v-show="user_flag" style="float: left;text-align: right">卖出</a>
+                      <a class="li" v-on:click="sell(index)" v-show="user_flag"
+                         style="float: left;text-align: right">卖出</a>
 
                     </div>
                   </div>
@@ -235,35 +241,39 @@
           sellShare: 0,
           payPassword: null
         },
-        cancelOrderId:null,
-        cancelDialogShow:false,
-        isSellCancel:true
+        cancelOrderId: null,
+        cancelDialogShow: false,
+        isSellCancel: true
       }
     },
     methods: {
-      cancelShow(orderId,flag){
-        this.cancelOrderId = orderId
-        this.cancelDialogShow = true
+      cancelShow(orderId, flag) {
+        this.cancelOrderId = orderId;
+        this.cancelDialogShow = true;
         this.isSellCancel = flag
       },
       // 确定取消按钮
-      cancelConfirm(){
-        let _this = this
+      cancelConfirm() {
+        let _this = this;
         if (this.$myapi.isNull(this.sell_form.payPassword) || this.$myapi.isPayPassword(this.sell_form.payPassword)) {
           return
         }
-        let url = _this.isSellCancel ?"/sell_order/update":'/buy_order/update'
-        _this.$myapi.post(url,{cancel:1,orderId:_this.cancelOrderId,payPassword: _this.sell_form.payPassword},function (res) {
+        let url = _this.isSellCancel ? "/sell_order/update" : '/buy_order/update';
+        _this.$myapi.post(url, {
+          cancel: 1,
+          orderId: _this.cancelOrderId,
+          payPassword: _this.sell_form.payPassword
+        }, function (res) {
           _this.$alert.show("100", "已撤销该操作");
-          if(_this.isSellCancel){
+          if (_this.isSellCancel) {
             _this.show_sell(_this.page)
-          }else{
+          } else {
             _this.show_buy(_this.page)
           }
           _this.show_buy_amount();
           _this.getMyRate()
-        })
-        this.cancelDialogShow = false
+        });
+        this.cancelDialogShow = false;
         this.sell_form.payPassword = null
       },
       // 得到该客户的收益率
@@ -291,7 +301,7 @@
           _this.show_has_fund(1);
           _this.sell_form.payPassword = null
         });
-        _this.sell_flag = false
+        _this.sell_flag = false;
         _this.show_buy_amount();
         _this.getMyRate()
       },
@@ -299,12 +309,12 @@
         this.user_flag = true;
         this.fund_flag = false;
         this.select_buy_flag = false;
-        this.page = 1
+        this.page = 1;
         this.show_has_fund(1)
       },
       show_has_fund(page) {
         let _this = this;
-        _this.page = 1
+        _this.page = 1;
         _this.$loading.show();
         this.$myapi.get("/buy_order/show_has_funds/" + page, {}, function (res) {
           if (res.data != null) {
@@ -454,10 +464,7 @@
   }
 
   .md-card {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
+    box-shadow: 0 0 0 white;
   }
-
 
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="margin-top: 16px;">
     <md-dialog :md-active.sync="see_flag" :style="$store.state.isAndroid==true?'width:100%':'width:40%'"
                class="md-elevation-5 ">
       <md-dialog-actions>
@@ -10,11 +10,9 @@
       </md-dialog-content>
 
     </md-dialog>
-    <div class="md-layout md-alignment-top-center">
-
-
+    <div class="md-layout md-alignment-top-center md-gutter">
       <div
-        class="md-layout-item md-large-size-15 md-medium-size-15 md-size-15 md-small-size-100 md-xsmall-size-100" style="margin-top: 20px">
+        class="md-layout-item md-large-size-20 md-medium-size-20 md-size-20 md-small-size-100 md-xsmall-size-100">
         <md-list>
           <md-list-item style="border-bottom: 1px solid #f4f4f4;">
             <md-icon class="md-primary" v-show="stop_flag">done</md-icon>
@@ -27,11 +25,10 @@
         </md-list>
       </div>
       <div
-        class="md-layout-item md-large-size-60 md-medium-size-60 md-small-size-100 md-xsmall-size-100" style="margin-left: 20px">
+        class="md-layout-item md-large-size-55 md-medium-size-55 md-small-size-100 md-xsmall-size-100 md-size-50">
         <!--<div class="md-layout md-gutter">-->
-
           <div class="md-layout-item md-large-size-100 md-medium-size-100 md-small-size-100 md-xsmall-size-100">
-            <md-card>
+            <md-card style="margin-top: 0px;box-shadow: 0 0 0 white;">
               <md-card-content>
 
                 <h1 style="text-align: left;font-size: 20px;color: #666;padding-bottom: 13px;border-bottom: 1px solid #e8e8e8;">
@@ -39,9 +36,9 @@
                   <span v-if="!stop_flag">全部股票</span>
 
                 </h1>
-                <div class="md-layout md-gutter">
+                <div class="md-layout">
                   <div  v-for="(stock,index) in stocks" class="md-layout-item md-size-25 md-large-size-25 md-medium-size-25 md-small-size-100 md-xsmall-size-100">
-                    <md-card class="scrollable-card">
+                    <md-card class="scrollable-card" style="border: 1px solid #f4f4f4;box-shadow: 0 0 0 white">
                       <a href="javascript:void(0)" v-on:click="see(stock.stockId)" style="color: #555">
                         <md-ripple>
                           <md-card-header>
@@ -49,8 +46,8 @@
                               <h3 class="nobr" style="max-width: 150px;">{{ stock.name }}</h3>
                               <p class="md-subhead">{{ stock.stockId }}</p>
                               <p class="md-subhead">开盘价：{{ stock.openingPrice }}元</p>
-                              <p class="md-subhead" :style="stock.stockPrice>stock.openingPrice?'color:red':'color:green'">当前价：{{ stock.stockPrice }}元</p>
-                              <p class="md-subhead" :style="stock.stockPrice>stock.openingPrice?'color:red':'color:green'">涨跌：{{ ((stock.stockPrice/stock.openingPrice-1)*100).toFixed(2) }}%</p>
+                              <p class="md-subhead" :style="stock.stockPrice>=stock.openingPrice?'color:red':'color:green'">当前价：{{ stock.stockPrice }}元</p>
+                              <p class="md-subhead" :style="stock.stockPrice>=stock.openingPrice?'color:red':'color:green'">涨跌：{{ ((stock.stockPrice/stock.openingPrice-1)*100).toFixed(2) }}%</p>
                             </md-card-header-text>
                           </md-card-header>
                         </md-ripple>
@@ -233,9 +230,5 @@
     color: #42b983;
   }
 
-  .md-card {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-  }
+
 </style>

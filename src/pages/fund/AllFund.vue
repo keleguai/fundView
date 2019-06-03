@@ -1,9 +1,7 @@
 <template>
   <div>
-    <div class="md-layout md-alignment-top-center">
-      <div
-        class="md-layout-item md-large-size-15 md-medium-size-15 md-size-15 md-small-size-100 md-xsmall-size-100"
-        style="margin-top: 30px">
+    <div class="md-layout md-alignment-top-center md-gutter">
+      <div class="md-layout-item md-large-size-20 md-medium-size-20 md-size-20 md-small-size-100 md-xsmall-size-100">
         <md-list>
           <md-list-item style="border-bottom: 1px solid #f4f4f4;">
             <md-icon class="md-primary" v-show="type==1">done</md-icon>
@@ -20,15 +18,18 @@
             <a class="md-list-item-text" style="color: #999;text-align: center;text-decoration:none"
                @click="type_3_click" href="javascript:void(0)">其他相关</a>
           </md-list-item>
+          <!--<md-list-item style="border-bottom: 1px solid #f4f4f4;" to="/mymoney">-->
+            <!--<a class="md-list-item-text" style="color: #999;text-align: center;text-decoration:none"-->
+               <!--href="javascript:void(0)">我的基金</a>-->
+          <!--</md-list-item>-->
         </md-list>
       </div>
 
       <div
-        class="md-layout-item md-large-size-60 md-medium-size-55 md-size-55 md-small-size-100 md-xsmall-size-100"
-        style="margin-left: 15px;">
-        <div class="md-layout md-gutter">
+        class="md-layout-item md-large-size-55 md-medium-size-55 md-size-55 md-small-size-100 md-xsmall-size-100">
+        <div class="md-layout md-gutter" style="padding: 0px;margin-top: 0!important;background-color: white">
           <div class="md-layout-item md-large-size-100 md-medium-size-100 md-small-size-100 md-xsmall-size-100">
-            <md-card id="top">
+            <md-card id="top" style="margin-top: 0px">
               <md-card-content>
                 <md-dialog :md-active.sync="buy_flag" class="md-elevation-5 ">
                   <md-dialog-content>
@@ -86,10 +87,9 @@
                 </h1>
 
                 <md-empty-state v-show="funds.length==0"
-                                class="md-primary"
-                                md-icon="done"
-                                md-label="这里空空如也哦"
-                                md-description="空空如也............">
+                                md-icon="refresh"
+                                md-label="无结果"
+                                md-description="或许被外星人吃掉了">
                 </md-empty-state>
                 <md-list class="md-triple-line" style="padding: 0;background-color: rgba(255,255,255,.9)">
                   <div class="md-layout md-gutter">
@@ -182,14 +182,16 @@
       },
       findByPageName(page, regex) {
         let _this = this;
-        _this.$loading.show();
         this.$myapi.get('/fund/regex/' + page, {regex: regex}, function (res) {
           _this.funds = res.data.list;
           _this.end_page = res.data.lastPage;
+          if(_this.end_page==0){
+            _this.end_page = 1
+            return
+          }
           for (let i = 0; i < _this.funds.length; i++) {
             _this.funds[i].managerNames = _this.funds[i].managerNames.split('-')
           }
-          _this.$loading.hide()
         })
         this.$myapi.returnTop("top")
       },
@@ -277,6 +279,9 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .li{
+    font-size: 16px;margin: 0 13px 14px 0;padding: 2px 10px;color: #666;cursor: pointer;
+  }
   .my-raised {
     background-color: rgba(10, 10, 0, .1);
     border-radius: 7px;
@@ -304,10 +309,9 @@
   a {
     color: #42b983;
   }
-
-  .md-card {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
+  .md-card{
+    box-shadow: 0 0 0 white;
   }
+
+
 </style>

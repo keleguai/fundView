@@ -15,9 +15,9 @@
 
         <FundsCard :funds="funds" v-if="funds.length"/>
         <md-empty-state v-else
-          md-icon="devices_other"
-          md-label="这里空空如也哦"
-          md-description="........">
+          md-icon="refresh"
+          md-label="无结果"
+          md-description="在哪个小可爱的肚子里呢">
         </md-empty-state>
       </md-dialog-content>
 
@@ -105,5 +105,9 @@
     max-width: 100%;
     max-height: 100%;
     /*margin-left: 20px;*/
+  }
+  .md-card{
+    box-shadow: none;
+    border: 1px solid #f4f4f4;
   }
 </style>

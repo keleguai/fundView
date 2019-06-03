@@ -69,4 +69,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  .md-card{
+    box-shadow: none;
+    border: 1px solid #f4f4f4;
+  }
 </style>

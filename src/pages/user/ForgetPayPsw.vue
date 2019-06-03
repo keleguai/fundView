@@ -1,12 +1,12 @@
 <template>
   <div>
     <div class="md-layout md-gutter md-alignment-top-center">
-      <div class="md-layout-item md-size-30 md-large-size-30 md-medium-size-30 md-small-size-50 md-xsmall-size-85">
+      <div class="md-layout-item md-size-25 md-large-size-25 md-medium-size-25 md-small-size-100 md-xsmall-size-100">
         <UserCard/>
       </div>
 
       <div
-        class="md-layout-item md-large-size-50 md-medium-size-40 md-small-size-100 md-xsmall-size-100">
+        class="md-layout-item md-size-50 md-large-size-50 md-medium-size-50 md-small-size-100 md-xsmall-size-100">
         <ForgetPayPswCard/>
       </div>
     </div>

@@ -9,9 +9,9 @@
       <md-dialog-content>
         <FundsCard :funds="funds" v-if="funds.length"/>
         <md-empty-state v-else
-          md-icon="devices_other"
-          md-label="这里空空如也哦"
-          md-description="........">
+          md-icon="refresh"
+          md-label="无结果"
+          md-description="暂无数据">
         </md-empty-state>
       </md-dialog-content>
     </md-dialog>
@@ -36,7 +36,8 @@
                 <h3 class="nobr" style="max-width: 150px;">{{ stock.name }}</h3>
                 <p class="md-subhead">{{ stock.stockId }}</p>
                 <p class="md-subhead">开盘价：{{ stock.openingPrice }}元</p>
-                <p class="md-subhead" :style="stock.stockPrice>stock.openingPrice?'color:red':'color:green'">当前价：{{ stock.stockPrice }}元</p>
+                <p class="md-subhead" :style="stock.stockPrice>=stock.openingPrice?'color:red':'color:green'">当前价：{{ stock.stockPrice }}元</p>
+                <p class="md-subhead" :style="stock.stockPrice>=stock.openingPrice?'color:red':'color:green'">涨跌：{{ ((stock.stockPrice/stock.openingPrice-1)*100).toFixed(2) }}%</p>
               </md-card-header-text>
             </md-card-header>
             </md-ripple>
@@ -82,7 +83,7 @@
 <style scoped>
   .scrollable-card {
     display: inline-block;
-    width: 250px;
+    width: 200px;
     position: relative;
     margin-bottom: 20px !important;
     margin-right: 40px;
@@ -98,5 +99,9 @@
     max-width: 100%;
     max-height: 100%;
     /*margin-left: 20px;*/
+  }
+  .md-card{
+    box-shadow: none;
+    border: 1px solid #f4f4f4;
   }
 </style>

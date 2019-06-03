@@ -1,8 +1,11 @@
 <template>
   <div>
-
-    <md-card class="md-elevation-24" md-with-hover>
+    <md-card>
       <md-card-content>
+          <div style="color: #6b6b6b;
+    height: 24px;
+    font-size: 24px;
+    line-height: 24px;text-align: left">介绍</div>
         <p>基金经理名称：<b
           style="color: #555">{{manager.managerName}}</b></p>
         <p>基金经理编号：{{manager.managerId}}</p>
@@ -48,5 +51,7 @@
 </script>
 
 <style scoped>
-
+  .md-card{
+    box-shadow: 0 0 0 white;
+  }
 </style>

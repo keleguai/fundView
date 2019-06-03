@@ -53,9 +53,9 @@
       <p style="color: rgba(0,0,0,1);font-size: 25px;">基基基...基金表↓</p>
       <md-empty-state v-if="funds.length==0"
                       class="md-primary"
-                      md-icon="done"
-                      md-label="这里空空如也哦"
-                      md-description="空空如也............">
+                      md-icon="refresh"
+                      md-label="无结果"
+                      md-description="暂无数据">
       </md-empty-state>
       <md-list class="md-triple-line" style="padding: 0;background-color: rgba(255,255,255,.9)">
         <template v-for="(fund,index) in funds">

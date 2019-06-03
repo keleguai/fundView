@@ -1,8 +1,7 @@
 <template>
 
-  <md-card>
-
-    <div class="md-layout md-gutter md-alignment-top-center">
+  <md-card style="background-color: white">
+    <div class="md-layout md-gutter md-alignment-top-center" style="background-color: white!important;margin: 0!important;" >
       <div class="md-layout-item md-size-40 md-large-size-40  md-medium-size-40 md-small-size-40 md-xsmall-size-40">
         <md-card-media md-ratio="1:1">
           <img :src="$store.state.user.info.photoUrl" class="want " id="head_img" style="width: 100%;text-align: left"/>
@@ -19,7 +18,7 @@
           <p>年龄：{{$store.state.user.info.age}}</p>
         </md-card-content>
         <md-card-actions>
-          <md-button  to="/mymoney"><md-icon>work_outline</md-icon>小钱包包</md-button>
+          <md-button  class="md-primary md-raised" to="/mymoney"><md-icon>work_outline</md-icon>小钱包包</md-button>
         </md-card-actions>
       </div>
       <div v-else>
@@ -70,5 +69,7 @@
 </script>
 
 <style scoped>
-
+.md-card{
+  box-shadow: 0 0 0 white;
+}
 </style>

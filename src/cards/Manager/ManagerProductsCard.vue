@@ -1,6 +1,6 @@
 <template>
   <div>
-    <md-card class="md-elevation-24" md-with-hover>
+    <md-card>
       <md-card-header>
         <div class="md-title" style="text-align: left">
           该基金经理管理的
@@ -9,7 +9,6 @@
       <FundsCard :funds="funds"/>
     </md-card>
   </div>
-
 </template>
 
 <script>
@@ -47,5 +46,7 @@
 </script>
 
 <style scoped>
-
+  .md-card{
+    box-shadow: 0 0 0 white;
+  }
 </style>

@@ -1,27 +1,36 @@
 <template>
   <div>
-    <div class="md-layout md-alignment-top-center">
+    <div class="md-layout md-alignment-top-center md-gutter" style="margin-top: 16px">
       <div
-        class="md-layout-item md-large-size-15 md-medium-size-15 md-size-15 md-small-size-100 md-xsmall-size-100"
-        style="margin-top: 20px">
-        <md-list>
-          <md-list-item style="border-bottom: 1px solid #f4f4f4;">
-            <md-icon class="md-primary" v-show="user_flag">done</md-icon>
-            <a class="md-list-item-text" style="color: #999;text-align: center;text-decoration:none"
-               @click="show_user_rank" href="javascript:void(0)">用户排行榜</a>
-          </md-list-item>
-          <md-list-item style="border-bottom: 1px solid #f4f4f4;">
-            <md-icon class="md-primary" v-show="fund_flag">done</md-icon>
-            <a class="md-list-item-text" style="color: #999;text-align: center;text-decoration:none"
-               @click="show_fund_rank" href="javascript:void(0)">基金排行榜</a>
-          </md-list-item>
-        </md-list>
+        class="md-layout-item md-large-size-30 md-medium-size-30 md-size-30 md-small-size-100 md-xsmall-size-100">
+        <!--<div-->
+          <!--class="md-layout-item md-large-size-100 md-medium-size-100 md-size-100 md-small-size-100 md-xsmall-size-100">-->
+        <!--<md-list>-->
+          <!--<md-list-item style="border-bottom: 1px solid #f4f4f4;">-->
+            <!--<md-icon class="md-primary" v-show="user_flag">done</md-icon>-->
+            <!--<a class="md-list-item-text" style="color: #999;text-align: center;text-decoration:none"-->
+               <!--@click="show_user_rank" href="javascript:void(0)">用户排行榜</a>-->
+          <!--</md-list-item>-->
+          <!--<md-list-item style="border-bottom: 1px solid #f4f4f4;">-->
+            <!--<md-icon class="md-primary" v-show="fund_flag">done</md-icon>-->
+            <!--<a class="md-list-item-text" style="color: #999;text-align: center;text-decoration:none"-->
+               <!--@click="show_fund_rank" href="javascript:void(0)">基金排行榜</a>-->
+          <!--</md-list-item>-->
+        <!--</md-list>-->
+        <!--</div>-->
+        <div
+          class="md-layout-item md-large-size-100 md-medium-size-100 md-size-100 md-small-size-100 md-xsmall-size-100">
+          <RewardCard/>
+        </div>
+        <div
+          class="md-layout-item md-large-size-100 md-medium-size-100 md-size-100 md-small-size-100 md-xsmall-size-100" style="margin-top: 16px">
+          <CommentCard :rank_id="rank_id"/>
+        </div>
       </div>
 
       <div
-        class="md-layout-item md-large-size-55 md-medium-size-55 md-size-55 md-small-size-100 md-xsmall-size-100"
-        style="margin-left: 20px;">
-        <md-card>
+        class="md-layout-item md-large-size-45 md-medium-size-45 md-size-45 md-small-size-100 md-xsmall-size-100">
+        <md-card style="margin-top: 0px">
           <md-card-content id="top">
 
 
@@ -30,6 +39,22 @@
               <span v-show="user_flag">用户排行榜<small>(为保护隐私仅展示前十名)</small></span>
               <span v-show="fund_flag">基金排行榜</span>
             </h1>
+
+            <div style="text-align: left">
+              <h3 style="color: #666;font-size: 16px;margin-left: 24px;margin-right:20px;font-weight: 700;display: inline-block">
+                排行
+              </h3>
+              <ul style="display: inline-block;">
+                <li class="li"v-on:click="show_user_rank"
+                    :style="user_flag?'color:#fff;background-color:#448aff':''">
+                  用户排行榜
+                </li>
+                <li class="li"v-on:click="show_fund_rank"
+                    :style="fund_flag?'color:#fff;background-color:#448aff':''">
+                  基金排行榜
+                </li>
+              </ul>
+            </div>
 
             <div style="text-align: left">
               <h3 style="color: #666;font-size: 16px;margin-left: 24px;margin-right:20px;font-weight: 700;display: inline-block">
@@ -144,9 +169,14 @@
 </template>
 
 <script>
-
+  import RewardCard from '../../cards/normal/RewardCard'
+  import CommentCard from '../../cards/normal/CommentCard'
   export default {
     name: 'Rank',
+    components:{
+      RewardCard,
+      CommentCard
+    },
     data() {
       return {
         select_see_date: 30,
@@ -156,7 +186,8 @@
         funds: [],
         page: 1,
         end_page: 1,
-        users: []
+        users: [],
+        rank_id:1
       }
     },
     methods: {
@@ -257,12 +288,8 @@
   a {
     color: #42b983;
   }
-
-  .md-card {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 3px;
+  .md-card{
+    box-shadow: 0 0 0 white;
   }
-
 
 </style>

@@ -55,6 +55,12 @@
 
 
     <md-card>
+      <md-card-content>
+      <div style="color: #6b6b6b;
+    height: 24px;
+    font-size: 24px;
+    line-height: 24px;text-align: left">介绍</div>
+      </md-card-content>
       <md-card-header>
         <md-card-media md-ratio="1:1">
           <img :src="fund.photo"/>
@@ -73,7 +79,7 @@
                 </span>
         </p>
         <p>
-          基金经理： <a v-for="(name,index) in fund.managerNames"
+          基金经理： <a v-for="(name,index) in fund.managerNames" href="javascript:void(0)" style="text-decoration: none"
                           v-on:click="$router.push('/manager/' + fund.managerIds[index])">{{name}}&nbsp;&nbsp;&nbsp; </a>
         </p>
 
@@ -84,7 +90,7 @@
 
       </md-card-content>
       <md-card-actions>
-        <md-button class="md-primary" v-on:click="buy">
+        <md-button class="md-primary md-raised" v-on:click="buy">
           <md-icon>done</md-icon>
           立即购买
         </md-button>
@@ -96,7 +102,7 @@
 
 <script>
   export default {
-    name: "Edit",
+    name: "FundCard",
     props: ['fundId'],
     data() {
       return {
@@ -167,5 +173,7 @@
 </script>
 
 <style scoped>
-
+  .md-card{
+    box-shadow: 0 0 0 white;
+  }
 </style>

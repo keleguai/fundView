@@ -17,5 +17,7 @@
 </script>
 
 <style scoped>
-
+  .md-card{
+    box-shadow: 0 0 0 white;
+  }
 </style>

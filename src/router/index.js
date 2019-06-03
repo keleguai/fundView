@@ -13,6 +13,7 @@ import Manager from '@/pages/manager/Manager'
 import Register from '@/pages/user/Register'
 import ForgetPayPsw from '@/pages/user/ForgetPayPsw'
 import ForgetPsw from '@/pages/user/ForgetPsw'
+import Notification from '@/pages/user/Notification'
 
 Vue.use(Router)
 
@@ -32,6 +33,11 @@ export default new Router({
       path: '/register-more',
       name: 'RegisterMore',
       component: RegisterMore
+    },
+    {
+      path: '/notifications',
+      name: 'Notification',
+      component: Notification
     },
     {
       path: '/register',

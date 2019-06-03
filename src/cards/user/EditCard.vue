@@ -1,5 +1,5 @@
 <template>
-  <md-card :class="!$store.state.isLogin?'md-elevation-24':''" md-with-hover>
+  <md-card :class="!$store.state.isLogin?'md-elevation-24':''">
     <md-card-content v-if="!nextFlag">
 
 
@@ -159,7 +159,7 @@
       <md-button  v-if="$store.state.isLogin" v-on:click="update_user_info" class="md-primary md-raised"><md-icon>done</md-icon>保存</md-button>
       <md-button  class="md-primary md-raised" v-else-if="!nextFlag" v-on:click="next"><md-icon>done</md-icon>下一步</md-button>
       <md-button  v-else-if="nextFlag" v-on:click="nextFlag=false">上一步</md-button>
-      <md-button  v-if="nextFlag" v-on:click="save">保存</md-button>
+      <md-button  v-if="nextFlag" v-on:click="save" class="md-primary md-raised"><md-icon>done</md-icon>保存</md-button>
     </md-card-actions>
   </md-card>
 </template>
@@ -293,5 +293,7 @@
 </script>
 
 <style scoped>
-
+.md-card{
+  box-shadow: none;
+}
 </style>
