@@ -163,7 +163,7 @@
       findByPageName(page, regex) {
         let _this = this;
         _this.$loading.show();
-        this.$myapi.get('/fund/regex/' + page, {regex: regex}, function (res) {
+        this.$myapi.get('/fund/general/regex/' + page, {regex: regex}, function (res) {
           _this.funds = res.data.list;
           _this.end_page = res.data.lastPage;
           for (let i = 0; i < _this.funds.length; i++) {
@@ -202,7 +202,7 @@
       pullFund(page, type) {
         let _this = this;
         this.isLoading = true;
-        this.$myapi.get('/fund/type/' + page + "/" + type, {}, function (res) {
+        this.$myapi.get('/fund/general/type/' + page + "/" + type, {}, function (res) {
           _this.funds = res.data.list;
           _this.end_page = res.data.lastPage;
           for (let i = 0; i < _this.funds.length; i++) {

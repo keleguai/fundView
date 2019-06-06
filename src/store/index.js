@@ -8,6 +8,7 @@ export default new Vuex.Store({
     user
   },
   state: {
+    prePath:'/',
     isLogin: false,
     isAndroid: true,
     isLoading: false,
@@ -21,6 +22,9 @@ export default new Vuex.Store({
     },
   },
   mutations: {
+    setPrePath(state,path){
+      state.prePath = path
+    },
     setTyep(state,type){
       state.type = type
     },
@@ -41,6 +45,7 @@ export default new Vuex.Store({
     },
     logout(state) {
       state.isLogin = false
+      this.commit("clearType")
       this.commit("resetUserInfo")
     },
     showDialog(state, para) {

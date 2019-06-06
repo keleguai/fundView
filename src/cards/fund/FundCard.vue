@@ -53,6 +53,86 @@
       </md-dialog-content>
     </md-dialog>
 
+    <md-dialog :md-active.sync="fix_buy_flag" class="md-elevation-5 " :style="$store.state.isAndroid==true?'width:100%':'width:40%'">
+      <md-dialog-content>
+        <md-card-header>
+          <md-card-media md-ratio="1:1">
+            <img :src="fixed_form.photo"/>
+          </md-card-media>
+
+        </md-card-header>
+        <p>基金名称：<b>{{fixed_form.fundName}}</b>({{fixed_form.fundId}})
+        </p>
+        <p>每期申购费率：<b>{{fixed_form.buyingRate*100}}%</b></p>
+        <p>每期手续费：<b>{{(fixed_form.buyingRate*fixed_form.money).toFixed(2)}}元</b>
+        </p>
+        <md-field>
+          <md-icon>bookmark</md-icon>
+          <label>买入金额（1元起）</label>
+          <md-input v-model="fixed_form.money"></md-input>
+        </md-field>
+        <md-field>
+          <!--<md-icon>done</md-icon>-->
+          <label>
+            请选择银行卡
+          </label>
+          <md-select v-model="bank" v-show="$store.state.isLogin">
+            <md-option v-for="(bankId,index) in $store.state.user.info.bankCardNumber" :value="index">{{bankId}}</md-option>
+          </md-select>
+        </md-field>
+        <md-field>
+
+        <label>
+          定投周期
+        </label>
+        <md-select v-model="fixed_form.loopTime">
+          <md-option :value="7">每周
+          </md-option>
+          <md-option value="14">每两周
+          </md-option>
+          <md-option value="28">每月
+          </md-option>
+        </md-select>
+
+      </md-field>
+        <md-field>
+
+          <label>
+            定投日
+          </label>
+          <md-select v-model="fixed_form.weekDay">
+            <md-option :value="0">周一
+            </md-option>
+            <md-option value="1">周二
+            </md-option>
+            <md-option value="2">周三
+            </md-option>
+            <md-option value="2">周四
+            </md-option>
+            <md-option value="2">周五
+            </md-option>
+          </md-select>
+
+        </md-field>
+        <md-field :class="$myapi.isNull(fixed_form.pay_password)||$myapi.isPayPassword(fixed_form.pay_password)">
+          <md-icon>lock</md-icon>
+          <label>输入支付密码</label>
+          <md-input type="password" v-model="fixed_form.pay_password"></md-input>
+          <span class="md-error" v-if="$myapi.isNull(fixed_form.pay_password)">支付密码不可以为空</span>
+          <span class="md-error" v-if="!$myapi.isNull(fixed_form.pay_password)&&fixed_form.pay_password">支付密码为6位数字</span>
+        </md-field>
+        <md-card-actions>
+          <md-button v-if="$store.state.isLogin" to="/forget-paypsw">
+            <md-icon>lock</md-icon>
+            忘记支付密码？
+          </md-button>
+          <md-button v-on:click="fix_buy_flag=false">取消！</md-button>
+          <md-button class="md-primary md-raised" v-on:click="confirm_fix_buy">定投！</md-button>
+        </md-card-actions>
+
+      </md-dialog-content>
+    </md-dialog>
+
 
     <md-card>
       <md-card-content>
@@ -90,6 +170,10 @@
 
       </md-card-content>
       <md-card-actions>
+        <md-button class="md-primary" v-on:click="fixed_buy">
+          <md-icon>star</md-icon>
+          定投
+        </md-button>
         <md-button class="md-primary md-raised" v-on:click="buy">
           <md-icon>done</md-icon>
           立即购买
@@ -109,11 +193,18 @@
         bank:0,
         fund: [],
         buy_flag: false,
+        fix_buy_flag:false,
         buy_info: [],
         buy_form: {
           fund_id: null,
           transaction_amount: 1,
           pay_password: null
+        },
+        fixed_form:{
+          money:10,
+          fundId:null,
+          weekDay:null,
+          loopTime:null
         }
       }
     },
@@ -130,6 +221,29 @@
           _this.buy_form.pay_password = null
         })
       },
+      confirm_fix_buy() {
+        if(this.$myapi.isNull(this.fixed_form.pay_password)||this.$myapi.isPayPassword(this.fixed_form.pay_password)){
+          return
+        }
+        this.fix_buy_flag = false;
+        let _this = this;
+        this.$myapi.post("/fixed_fund/add", _this.fixed_form, function (res) {
+          _this.$alert.show(100, "定投成功👌，金额为" + _this.fixed_form.money + "，基金产品id为" + _this.fixed_form.fundId);
+          _this.fixed_form.money = 1;
+          _this.fixed_form.pay_password = null
+        })
+      },
+      fixed_buy(){
+        this.fix_buy_flag = true;
+        if(!this.$store.state.isLogin){
+          this.fix_buy_flag = false
+          this.$alert.show(401,null)
+        }
+        this.fixed_form = this.fund
+        this.fixed_form.money = 1
+        this.fixed_form.weekDay = 0
+        this.fixed_form.loopTime = 7
+      },
       buy() {
         this.buy_flag = true;
         if(!this.$store.state.isLogin){
@@ -142,7 +256,7 @@
       },
       pullPriority() {
         let _this = this;
-        this.$myapi.get('/fund/' + _this.$route.params.id, {}, function (res) {
+        this.$myapi.get('/fund/general/' + _this.$route.params.id, {}, function (res) {
           _this.fund = res.data;
           _this.fund.managerNames = _this.fund.managerNames.split('-');
           _this.fund.managerIds = _this.fund.managerIds.split('-');

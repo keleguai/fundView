@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<link rel="stylesheet" href="/static/style/Live2D/live2d/css/live2d.css" />
+<link rel="stylesheet" href="/static/style/Live2D/live2d/css/live2d.css"/>
 <div id="landlord">
   <div class="message" style="opacity:0"></div>
   <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
@@ -17,7 +17,7 @@
 </div>
 <script type="text/javascript" src="/static/js/jquery.js"></script>
 <script type="text/javascript">
-  var message_Path = '/static/style/Live2D/live2d/'
+  var message_Path = '/static/style/Live2D/live2d/';
   var home_Path = 'http://127.0.0.1:4000/'
 </script>
 <script type="text/javascript" src="/static/style/Live2D/live2d/js/live2d.js"></script>
@@ -41,7 +41,7 @@
       宅基通 | Zhaijitong!
     </h3>
     <p style="text-align: center">请稍候...</p>
-    <p style="color: #cccccc;text-align: center" >
+    <p style="color: #cccccc;text-align: center">
       ©2018-2019 zhaijitong. All rights reserved.</p>
   </div>
 </div>
@@ -61,7 +61,7 @@
   }
 
   .md-layout {
-    margin-top: 16px!important;
+    padding-top: 16px !important;
   }
 
   .md-card {
@@ -70,8 +70,9 @@
     /*margin-top: 16px;*/
     /*box-shadow: 0 0 0 white;*/
   }
-  img{
-    border-radius: 7px!important;
+
+  img {
+    border-radius: 7px !important;
   }
 
   .md-select-menu {
@@ -173,18 +174,29 @@
     background-color: #448aff;
   }
 
-  ul{
+  ul {
     border-radius: 7px;
   }
-  div{
+
+  div {
     border-radius: 7px;
   }
-  .md-button.md-raised:not([disabled]){
+
+  .md-button.md-raised:not([disabled]) {
     box-shadow: none;
     border-radius: 7px;
 
   }
 
+  body {
+    cursor: url('/static/mouse/mouse1.cur'), pointer !important;
+  }
+  .md-field:hover,button:hover,li:hover,a:hover {
+    cursor: url('/static/mouse/mouse2.cur'), pointer !important;
+  }
+  /*button:hover{*/
+    /*cursor: url('/static/mouse/mouse2.cur'), pointer !important;*/
+  /*}*/
 </style>
 </body>
 </html>

@@ -18,7 +18,8 @@
           <p>年龄：{{$store.state.user.info.age}}</p>
         </md-card-content>
         <md-card-actions>
-          <md-button  class="md-primary md-raised" to="/mymoney"><md-icon>work_outline</md-icon>小钱包包</md-button>
+          <md-button  class="md-primary md-raised" to="/mymoney" v-if="$route.path!='/mymoney'"><md-icon>work_outline</md-icon>小钱包包</md-button>
+          <md-button  class="md-primary md-raised" to="/edit" v-else><md-icon>edit</md-icon>编辑信息</md-button>
         </md-card-actions>
       </div>
       <div v-else>

@@ -11,9 +11,9 @@
         <md-progress-bar class="md-primary" md-mode="query"></md-progress-bar>
       </md-dialog-content>
     </md-dialog>
-    <md-app style="background-color: white;">
+    <md-app style="background-color: white;box-shadow: 0 2px 6px rgba(0,0,0,.04);">
       <md-app-toolbar style="background-color: white" v-if="!$store.state.isAndroid">
-        <md-tabs md-alignment="centered" md-sync-route>
+        <md-tabs md-alignment="centered" md-sync-route v-if="$store.state.user.type==0">
           <template slot="md-tab" slot-scope="{ tab }">
             <md-icon>{{tab.icon}}</md-icon>{{ tab.label }}<i class="badge" v-if="tab.data.badge" >{{ tab.data.badge }}</i>
           </template>
@@ -22,8 +22,12 @@
           <md-tab id="tab-aly" md-label="排行榜" to="/rank" md-icon="call_made"></md-tab>
           <md-tab id="tab-game" md-label="小钱包" to="/mymoney" :md-icon="$store.state.isLogin?'lock_open':'lock'" :md-disabled="$store.state.isLogin?false:true"></md-tab>
           <md-tab id="tab-stop-stock" md-label="停牌表" to="/stop-stock" md-icon="looks"></md-tab>
-          <md-tab id="tab-notifications" md-label="消息" md-icon="notifications" :md-disabled="$store.state.isLogin?false:true" :md-template-data="{ badge: newPosts }" @click="clearNewPosts"></md-tab>
+          <md-tab id="tab-notifications" md-label="消息" md-icon="notifications" :md-disabled="$store.state.isLogin?false:true" to="/notifications" :md-template-data="{ badge: newPosts }" @click="clearNewPosts"></md-tab>
         </md-tabs>
+        <md-tabs v-else md-sync-route>
+          <md-tab id="tab-home" md-label="管理界面" to="/root" md-icon="home" style="color: #555!important;"></md-tab>
+        </md-tabs>
+
         <div class="md-toolbar-section-end" style="padding-left: 10px">
           <div v-if="!($store.state.isLogin)">
             <md-button class="md-primary" to="/login">
@@ -38,7 +42,7 @@
 
               <md-button md-menu-trigger>
                 <span style="color: #555;line-height: 30px">{{ $store.state.user.info.userName }}</span>
-                <md-avatar>
+                <md-avatar style="border: 1px solid #e8e8e8">
                   <img :src="$store.state.user.info.photoUrl">
                 </md-avatar>
               </md-button>
@@ -87,7 +91,7 @@
       </md-app-content>
 
     </md-app>
-    <router-view v-if="!$store.state.isAndroid"/>
+    <router-view :key="key" v-if="!$store.state.isAndroid"/>
     <footer style="background-color: white;padding: 30px;margin-top: 32px">
       <p>©2018-2019 zhaijitong. All rights reserved.</p>
       <p>作者：金证实习第二小组全体成员（尹浩然，门荣伟，韦韩，李子烁，周海昕，符真榜）</p>
@@ -116,7 +120,13 @@
       }
     },
     mounted(){
+      this.getNotifications()
       setInterval(this.getNotifications,30000)
+    },
+    computed:{
+      key(){
+        return this.$route.path + Math.random();
+      }
     },
     methods: {
       getNotifications(){
@@ -221,7 +231,7 @@
 
   body {
     -webkit-tap-highlight-color: transparent;
-    background-color: #ebebeb;
+    background-color: rgb(244, 244, 244);
     /*background-color: white;*/
     margin: 0;
     background-repeat: no-repeat;

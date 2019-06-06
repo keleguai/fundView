@@ -37,16 +37,16 @@
           </div>
         </md-card-content>
         <md-card-content>
-          <div style="color: #6b6b6b;
-    height: 24px;
-    font-size: 24px;
-    line-height: 24px;text-align: left;" v-if="!comments.length">
-            <small>好像...没有消息....</small>
-          </div>
+          <div style="    text-align: center;
+    background: #f4f4f4;
+    margin: 20px;
+    font: 400 14px/40px STHeiti,'Microsoft Yahei';
+    color: #999;
+    cursor: pointer;" v-if="!comments.length">暂时没有可显示的消息哦</div>
           <div class="md-layout md-gutter md-alignment-top-center"
                style="margin-top: 10px;border-bottom: 1px solid #f4f4f4;">
             <div class="md-layout-item md-large-size-100 md-medium-size-100 md-small-size-100 md-xsmall-size-100"
-                 v-for="comment in comments">
+                 v-for="comment in comments" style="border-bottom: 1px solid #e8e8e8">
               <md-avatar style="height: 50px;width: 50px;text-align: left;float: left">
                 <img :src="comment.photoUrl" style="width: 100%"/>
               </md-avatar>
@@ -55,7 +55,9 @@
                   <span style="font-size: 14px;color: #898989;margin-right: 5px">{{comment.userName}}</span>
                   <a style="font-size: 12px;color: #448aff" v-if="comment.fundId" :href="'/#/fund/'+comment.fundId">在基金区({{comment.fundId}})回复</a>
                   <a style="font-size: 12px;color: #448aff" v-else-if="comment.managerId" :href="'/#/manager/'+comment.managerId">在经理区({{comment.managerId}})回复</a>
-                  <a style="font-size: 12px;color: #448aff" v-else-if="comment.rankId" :href="'/#/rank/'">在排行榜回复</a>
+                  <a style="font-size: 12px;color: #448aff" v-else-if="comment.rankId==1" :href="'/#/rank'">在排行榜回复</a>
+                  <a style="font-size: 12px;color: #448aff" v-else-if="comment.rankId==2" :href="'/#/stop-stock'">在停牌榜回复</a>
+                  <a style="font-size: 12px;color: #448aff" v-else-if="comment.rankId==3" :href="'/#/all-fund'">在全部基金区回复</a>
 
                   <span style="font-size: 12px;color: #b7b7b7;display: block">{{$myapi.parseMyDate(comment.insertTime)}}</span>
 
@@ -86,8 +88,6 @@
             <md-button class="md-primary" v-if="page!=1" v-on:click="pre">上一页</md-button>
             <md-button class="md-primary" v-if="page!=end_page" v-on:click="next">下一页</md-button>
           </md-card-actions>
-
-
         </md-card-content>
       </md-card>
     </div>
@@ -198,7 +198,7 @@
           if (_this.end_page == 0) {
             _this.end_page = 1
           }
-
+          _this.$myapi.returnTop("top")
         })
       }
     },

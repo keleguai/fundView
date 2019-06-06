@@ -1,6 +1,6 @@
 <template>
   <div>
-    <md-card class="md-layout md-elevation-24" md-with-hover>
+    <md-card class="md-layout md-elevation-24" md-with-hover style="padding-top: 0!important;">
       <div class="md-layout-item md-xsmall-size-100 md-small-size-100 md-medium-size-25 md-size-25 md-small-hide">
         <md-card-media>
           <img src="/static/config/login.jpg"/>

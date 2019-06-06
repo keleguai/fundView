@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="md-layout md-alignment-top-center md-gutter" style="margin-top: 16px">
+    <div class="md-layout md-alignment-top-center md-gutter">
       <div
-        class="md-layout-item md-large-size-30 md-medium-size-30 md-size-30 md-small-size-100 md-xsmall-size-100">
+        class="md-layout-item md-large-size-25 md-medium-size-25 md-size-25 md-small-size-100 md-xsmall-size-100">
         <!--<div-->
           <!--class="md-layout-item md-large-size-100 md-medium-size-100 md-size-100 md-small-size-100 md-xsmall-size-100">-->
         <!--<md-list>-->
@@ -29,7 +29,7 @@
       </div>
 
       <div
-        class="md-layout-item md-large-size-45 md-medium-size-45 md-size-45 md-small-size-100 md-xsmall-size-100">
+        class="md-layout-item md-large-size-50 md-medium-size-50 md-size-50 md-small-size-100 md-xsmall-size-100">
         <md-card style="margin-top: 0px">
           <md-card-content id="top">
 
@@ -72,6 +72,22 @@
                 <li class="li"v-on:click="get_rank(365,1)"
                     :style="day==365?'color:#fff;background-color:#448aff':''">
                   365天
+                </li>
+              </ul>
+            </div>
+
+            <div style="text-align: left" v-show="fund_flag">
+              <h3 style="color: #666;font-size: 16px;margin-left: 24px;margin-right:20px;font-weight: 700;display: inline-block">
+                顺序
+              </h3>
+              <ul style="display: inline-block;">
+                <li class="li"v-on:click="changeDesc"
+                    :style="desc==1?'color:#fff;background-color:#448aff':''">
+                  正序
+                </li>
+                <li class="li"v-on:click="changeDesc"
+                    :style="desc==0?'color:#fff;background-color:#448aff':''">
+                  逆序
                 </li>
               </ul>
             </div>
@@ -187,10 +203,20 @@
         page: 1,
         end_page: 1,
         users: [],
-        rank_id:1
+        rank_id:1,
+        desc: 1
       }
     },
     methods: {
+      changeDesc(){
+        if(this.desc==1){
+          this.desc = 0
+        }else{
+          this.desc = 1
+        }
+        this.page = 1
+        this.get_fund_rank(this.day,this.page)
+      },
       next() {
         this.page = parseInt(this.page) + 1;
         this.get_rank(this.day, this.page)
@@ -216,7 +242,7 @@
         let _this = this;
         _this.page = page;
         _this.day = day;
-        _this.$myapi.get('/historical_fund/rank/' + day + '/' + _this.page, {}, function (res) {
+        _this.$myapi.get('/historical_fund/rank/' + day + '/' + _this.page+'/'+_this.desc, {}, function (res) {
           _this.funds = res.data.list;
           for (let i = 0; i < _this.funds.length; i++) {
             _this.funds[i].managerNames = _this.funds[i].managerNames.split('-');
@@ -229,7 +255,7 @@
       get_user_rank(day) {
         let _this = this;
         _this.day = day;
-        _this.$myapi.get('/fund/rank/user/' + day, {}, function (res) {
+        _this.$myapi.get('/fund/general/rank/user/' + day, {}, function (res) {
           _this.users = res.data;
           _this.end_page = 1;
           _this.$myapi.returnTop("top")

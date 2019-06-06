@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top: 16px;">
+  <div style="background: url(/static/bk/bk.png) repeat-x #fff;">
     <md-dialog :md-active.sync="see_flag" :style="$store.state.isAndroid==true?'width:100%':'width:40%'"
                class="md-elevation-5 ">
       <md-dialog-actions>
@@ -12,7 +12,7 @@
     </md-dialog>
     <div class="md-layout md-alignment-top-center md-gutter">
       <div
-        class="md-layout-item md-large-size-20 md-medium-size-20 md-size-20 md-small-size-100 md-xsmall-size-100">
+        class="md-layout-item md-large-size-25 md-medium-size-25 md-size-25 md-small-size-100 md-xsmall-size-100">
         <md-list>
           <md-list-item style="border-bottom: 1px solid #f4f4f4;">
             <md-icon class="md-primary" v-show="stop_flag">done</md-icon>
@@ -23,9 +23,11 @@
             <a class="md-list-item-text" style="color: #999;text-align: center;text-decoration:none"  href="javascript:void(0)" @click="firstNotStop">全部股票</a>
           </md-list-item>
         </md-list>
+        <InfoTemp style="margin-top: 16px"/>
+        <CommentCard rank_id="2"/>
       </div>
       <div
-        class="md-layout-item md-large-size-55 md-medium-size-55 md-small-size-100 md-xsmall-size-100 md-size-50">
+        class="md-layout-item md-large-size-50 md-medium-size-50 md-small-size-100 md-xsmall-size-100 md-size-50">
         <!--<div class="md-layout md-gutter">-->
           <div class="md-layout-item md-large-size-100 md-medium-size-100 md-small-size-100 md-xsmall-size-100">
             <md-card style="margin-top: 0px;box-shadow: 0 0 0 white;">
@@ -36,14 +38,17 @@
                   <span v-if="!stop_flag">全部股票</span>
 
                 </h1>
-                <div class="md-layout">
-                  <div  v-for="(stock,index) in stocks" class="md-layout-item md-size-25 md-large-size-25 md-medium-size-25 md-small-size-100 md-xsmall-size-100">
+                <div class="md-layout md-gutter">
+                  <div  v-for="(stock,index) in stocks" class="md-layout-item md-size-33 md-large-size-33 md-medium-size-33 md-small-size-100 md-xsmall-size-100">
                     <md-card class="scrollable-card" style="border: 1px solid #f4f4f4;box-shadow: 0 0 0 white">
                       <a href="javascript:void(0)" v-on:click="see(stock.stockId)" style="color: #555">
                         <md-ripple>
                           <md-card-header>
                             <md-card-header-text>
-                              <h3 class="nobr" style="max-width: 150px;">{{ stock.name }}</h3>
+                              <md-avatar style="border: 1px solid #e8e8e8">
+                                <img :src="stock.url">
+                              </md-avatar>
+                              <h4 class="nobr" style="max-width: 150px;">{{ stock.name }}</h4>
                               <p class="md-subhead">{{ stock.stockId }}</p>
                               <p class="md-subhead">开盘价：{{ stock.openingPrice }}元</p>
                               <p class="md-subhead" :style="stock.stockPrice>=stock.openingPrice?'color:red':'color:green'">当前价：{{ stock.stockPrice }}元</p>
@@ -87,18 +92,16 @@
 </template>
 
 <script>
-  import SmallPerson from '../../cards/normal/SmallPerson'
-  import Register from '../user/Register'
-  import UserCard from '../../cards/user/UserCard'
   import FundsCard from '../../cards/fund/FundsScrollCard'
+  import InfoTemp from '../../cards/stock/StopAlyCard'
+  import CommentCard from '../../cards/normal/CommentCard'
 
   export default {
     name: 'Index',
     components: {
-      UserCard,
-      SmallPerson,
-      Register,
-      FundsCard
+      FundsCard,
+      InfoTemp,
+      CommentCard
     },
     data() {
       return {
@@ -114,7 +117,8 @@
         fundPage: 1,
         funds: [],
         end_page: 1,
-        stop_flag:true
+        stop_flag:true,
+        tempDatas:[],
       }
     },
     methods: {
@@ -146,25 +150,25 @@
         if(_this.stop_flag){
           this.$myapi.get('/stock/disappear/' + page, {}, function (res) {
             _this.stocks = res.data.list;
-            _this.end_page = res.data.lastPage
+            _this.end_page = res.data.pages
             if(_this.end_page==0){
               _this.end_page = 1
             }
           })
         }else {
-          this.$myapi.get('/stock/list/' + page + '/8', {}, function (res) {
+          this.$myapi.get('/stock/list/' + page + '/6', {}, function (res) {
             _this.stocks = res.data.list;
-            _this.end_page = res.data.lastPage
+            _this.end_page = res.data.pages
             if(_this.end_page==0){
               _this.end_page = 1
             }
           })
         }
-
+        _this.$myapi.returnTop("top")
       },
       see(stockId) {
         let _this = this;
-        this.$myapi.get("/fund/by/" + stockId , {}, function (res) {
+        this.$myapi.get("/fund/general/by/" + stockId , {}, function (res) {
           _this.see_flag = true;
           _this.funds = res.data;
           for (let i = 0; i < _this.funds.length; i++) {
@@ -228,6 +232,11 @@
 
   a {
     color: #42b983;
+  }
+
+  .md-card{
+    border: 1px solid #ebebeb;
+    box-shadow: none;
   }
 
 

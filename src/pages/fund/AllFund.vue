@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div style="background: url(/static/bk/bk.png) repeat-x #fff;">
     <div class="md-layout md-alignment-top-center md-gutter">
-      <div class="md-layout-item md-large-size-20 md-medium-size-20 md-size-20 md-small-size-100 md-xsmall-size-100">
+      <div class="md-layout-item md-large-size-25 md-medium-size-25 md-size-25 md-small-size-100 md-xsmall-size-100">
         <md-list>
           <md-list-item style="border-bottom: 1px solid #f4f4f4;">
             <md-icon class="md-primary" v-show="type==1">done</md-icon>
@@ -23,11 +23,13 @@
                <!--href="javascript:void(0)">我的基金</a>-->
           <!--</md-list-item>-->
         </md-list>
+        <CommentCard rank_id="3" style="margin-top: 16px;border: 1px solid #e8e8e8;"/>
       </div>
 
       <div
-        class="md-layout-item md-large-size-55 md-medium-size-55 md-size-55 md-small-size-100 md-xsmall-size-100">
-        <div class="md-layout md-gutter" style="padding: 0px;margin-top: 0!important;background-color: white">
+        class="md-layout-item md-large-size-50 md-medium-size-50 md-size-50 md-small-size-100 md-xsmall-size-100" >
+        <div class="md-layout md-gutter" style="padding: 0px;margin-top: 0!important;background-color: white;border: 1px solid #e8e8e8;
+">
           <div class="md-layout-item md-large-size-100 md-medium-size-100 md-small-size-100 md-xsmall-size-100">
             <md-card id="top" style="margin-top: 0px">
               <md-card-content>
@@ -86,11 +88,12 @@
                   <span v-show="type==3">其他相关</span>
                 </h1>
 
-                <md-empty-state v-show="funds.length==0"
-                                md-icon="refresh"
-                                md-label="无结果"
-                                md-description="或许被外星人吃掉了">
-                </md-empty-state>
+                <div v-show="funds.length==0" style="    text-align: center;
+    background: #f4f4f4;
+    margin: 20px;
+    font: 400 14px/40px STHeiti,'Microsoft Yahei';
+    color: #999;
+    cursor: pointer;">暂时没有符合要求的基金哦</div>
                 <md-list class="md-triple-line" style="padding: 0;background-color: rgba(255,255,255,.9)">
                   <div class="md-layout md-gutter">
                     <div v-for="(fund,index) in funds"
@@ -104,7 +107,7 @@
 
                 </md-card-actions>
 
-                <md-card-actions>
+                <md-card-actions v-if="funds.length">
                   <md-field :class="$myapi.isMoreThanLastPage(page,end_page)">
                     <label>{{page}}页/{{end_page}}页</label>
                     <md-input v-model="page" type="number"></md-input>
@@ -129,11 +132,13 @@
 
 <script>
   import FundSmallCard from '../../cards/fund/FundSmallCard'
+  import CommentCard from '../../cards/normal/CommentCard'
 
   export default {
     name: 'AllFund',
     components: {
-      FundSmallCard
+      FundSmallCard,
+      CommentCard
     },
     data() {
       return {
@@ -182,7 +187,7 @@
       },
       findByPageName(page, regex) {
         let _this = this;
-        this.$myapi.get('/fund/regex/' + page, {regex: regex}, function (res) {
+        this.$myapi.get('/fund/general/regex/' + page, {regex: regex}, function (res) {
           _this.funds = res.data.list;
           _this.end_page = res.data.lastPage;
           if(_this.end_page==0){
@@ -225,7 +230,7 @@
       pullFund(page, type) {
         let _this = this;
         this.isLoading = true;
-        this.$myapi.get('/fund/type/' + page + "/" + type, {}, function (res) {
+        this.$myapi.get('/fund/general/type/' + page + "/" + type, {}, function (res) {
           _this.funds = res.data.list;
           _this.end_page = res.data.lastPage;
           for (let i = 0; i < _this.funds.length; i++) {
@@ -311,6 +316,7 @@
   }
   .md-card{
     box-shadow: 0 0 0 white;
+
   }
 
 

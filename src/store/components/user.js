@@ -17,6 +17,7 @@ export default {
       userName: null
     },
     isGetInfo:false,
+    type:0,
   },
   getters: {
   },
@@ -30,6 +31,12 @@ export default {
       state.info = userInfo
       state.isGetInfo = true
       state.info.photoUrl = state.info.photoUrl
+    },
+    setType: function(state,type){
+      state.type = type
+    },
+    clearType: function(state){
+      state.type = 0
     },
     /**
      * 重置userInfo

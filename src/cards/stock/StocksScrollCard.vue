@@ -33,6 +33,9 @@
             <md-ripple>
             <md-card-header>
               <md-card-header-text>
+                <md-avatar  style="border: 1px solid #e8e8e8">
+                  <img :src="stock.url">
+                </md-avatar>
                 <h3 class="nobr" style="max-width: 150px;">{{ stock.name }}</h3>
                 <p class="md-subhead">{{ stock.stockId }}</p>
                 <p class="md-subhead">开盘价：{{ stock.openingPrice }}元</p>
@@ -67,7 +70,7 @@
     methods:{
       findByStockId(stockId){
         let _this = this
-        this.$myapi.get("/fund/by/" + stockId , {}, function (res) {
+        this.$myapi.get("/fund/general/by/" + stockId , {}, function (res) {
           _this.see_flag = true;
           _this.funds = res.data;
           for (let i = 0; i < _this.funds.length; i++) {

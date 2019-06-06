@@ -6,7 +6,7 @@
         <FundInfoCard/>
       </div>
     </div>
-    <div class="md-layout md-alignment-top-center md-gutter" style="margin-top: 0!important;">
+    <div class="md-layout md-alignment-top-center md-gutter" style="margin-top: 0!important;padding-top: 0px!important;">
       <div class="md-layout-item md-size-30 md-large-size-30 md-medium-size-30 md-small-size-100 md-xsmall-size-100">
         <FundCard/>
       </div>

@@ -14,7 +14,7 @@
       <md-field>
         <md-card-header>
           <p><md-icon>bookmark</md-icon>编辑头像</p>
-          <md-card-media md-ratio="1:1">
+          <md-card-media md-ratio="1:1" style="border: 1px solid #e8e8e8;cursor: pointer">
             <img :src="$store.state.user.info.photoUrl" @click="openFile"/>
           </md-card-media>
           <md-input maxlength="30" @click="openFile" v-model="form.photoUrl"></md-input>
@@ -267,9 +267,18 @@
           return
         }
         let _this = this;
+        // let temp = ''
+        // for(let i=0;i<_this.form.bankCardNumber.length;i++){
+        //   temp += _this.form.bankCardNumber[i] + _this.form.bankCardNumber.length==i?'':'-'
+        // }
+        // this.form.bankCardNumber = temp
+        _this.form.bankCardNumber = _this.form.bankCardNumber.join("-")
         this.$myapi.post('/user_info/update', _this.form, function (res) {
           _this.$alert.show(100, "保存成功辣");
-          _this.update_photo()
+          if(_this.file!=null){
+            _this.update_photo()
+          }
+          _this.form.bankCardNumber = _this.form.bankCardNumber.split('-')
         })
       },
       update_photo() {

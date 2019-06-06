@@ -9,7 +9,7 @@
       <md-dialog-content>
         <md-card-header>
           <div class="md-title" style="text-align: left">
-            该基金经理管理的
+            该基金经理信息 <a href="javascript:void(0)" @click="$router.push('/manager/'+managerId)" style="font-size: 14px">查看详情</a>
           </div>
         </md-card-header>
 
@@ -71,12 +71,14 @@
     data(){
       return{
         see_flag:false,
-        funds:[]
+        funds:[],
+        managerId:null
       }
     },
     methods:{
       findByManagerId(managerId){
         let _this = this
+        _this.managerId = managerId
         this.$myapi.get('/fund_manager/products/' + managerId, {},function (res) {
           _this.funds = res.data
           _this.see_flag = true

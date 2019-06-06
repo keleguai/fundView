@@ -20,7 +20,7 @@
           <a :href="'/#/fund/'+fund.fundId">
             <md-card class="scrollable-card">
               <md-card-header>
-                <md-card-media md-ratio="1:1">
+                <md-card-media md-ratio="1:1" style="border: 1px solid #e8e8e8">
                   <img :src="fund.photo">
                 </md-card-media>
               </md-card-header>

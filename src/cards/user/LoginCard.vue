@@ -1,5 +1,5 @@
 <template>
-  <md-card class="md-layout md-elevation-24" md-with-hover>
+  <md-card class="md-layout md-elevation-24" md-with-hover style="padding: 0!important;">
     <div class="md-layout-item md-xsmall-size-100 md-small-size-100 md-medium-size-25 md-size-25 md-small-hide">
       <md-card-media>
         <img src="/static/config/login.jpg"/>
@@ -21,7 +21,7 @@
         <md-field :class="isPhone(form.phone_number)">
           <md-icon>phone</md-icon>
           <label>手机号码</label>
-          <md-input :disabled="false" v-model="form.phone_number">
+          <md-input :disabled="false" v-model="form.phone_number" @keyup.enter="login">
           </md-input>
           <span class="md-error">这不是一个正确的手机号码</span>
         </md-field>
@@ -29,7 +29,7 @@
         <md-field>
           <md-icon>lock</md-icon>
           <label>密码</label>
-          <md-input type="password" v-model="form.password" maxlength="20">
+          <md-input type="password" v-model="form.password" maxlength="20" @keyup.enter="login">
           </md-input>
         </md-field>
       </md-card-content>
@@ -45,7 +45,7 @@
           <md-icon>add</md-icon>
           注册
         </md-button>
-        <md-button class="md-primary md-raised" v-on:click="login">
+        <md-button class="md-primary md-raised" v-on:click="login" @keyup.enter="login">
           <md-icon>done</md-icon>
           登陆
         </md-button>
@@ -74,18 +74,18 @@
       login() {
         let _this = this;
         if (_this.isPhone(_this.form.phone_number)) {
-          return
+          returnbuy_order
         }
         this.$myapi.post('/user/login', _this.form, function (res) {
           _this.$store.commit("login");
           // 设置用户类型
           sessionStorage.setItem("token", res.token);
           sessionStorage.setItem("type", res.data.type);
-          if(window.history.length <= 1){
-            _this.$router.push('/');
-          }else {
-            _this.$router.go(-2)
+          if(res.data.type==1){
+            _this.$router.push("/root")
+            return
           }
+          _this.$router.back();
           _this.$myapi.get("/user_info/me", null, function (res) {
             _this.user_info = res.data;
             res.data.bankCardNumber = res.data.bankCardNumber.split('-');

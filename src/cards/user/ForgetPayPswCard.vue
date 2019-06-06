@@ -58,7 +58,7 @@
         }
         let _this = this
         this.$myapi.post('/user_info/update', _this.form, function (res) {
-          _this.$alert.show(100, "保存成功辣")
+          _this.$alert.show(233, "支付密码修改成功啦")
         })
       },
     }

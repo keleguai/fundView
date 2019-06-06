@@ -9,12 +9,12 @@
 
     </md-card-header>
     <md-card-content>
-      <div style="color: #6b6b6b;
-    height: 24px;
-    font-size: 24px;
-    line-height: 24px;text-align: left;" v-if="!comments.length">
-        <small>来当第一个留言的人呐.......</small>
-      </div>
+      <div style="    text-align: center;
+    background: #f4f4f4;
+    margin: 20px;
+    font: 400 14px/40px STHeiti,'Microsoft Yahei';
+    color: #999;
+    cursor: pointer;" v-if="!comments.length">来当第一个留言的人吧！</div>
       <div class="md-layout md-gutter md-alignment-top-center"
            style="margin-top: 10px;border-bottom: 1px solid #f4f4f4;" v-for="comment in comments">
         <div class="md-layout-item md-large-size-100 md-medium-size-100 md-small-size-100 md-xsmall-size-100">
@@ -31,18 +31,18 @@
               <p style="text-align: left"><a href="javascript:void(0)" style="color: #b7b7b7;font-size: 12px;"
                                              v-on:click="addReply(comment.userName,comment.userId,comment.id)">{{!form.reply_content||form.reply_id!=comment.id?'回复':'取消回复'}}</a>
               </p>
-              <md-card-actions v-if="!(!form.reply_content||form.reply_id!=comment.id)">
-                <md-field>
-                  <label>{{form.reply_content?form.reply_content:'评论.....'}}</label>
-                  <md-input maxlength="50" v-model="form.text"></md-input>
-                </md-field>
-                <md-button class="md-primary" v-on:click="addComment">
-                  <md-icon>done</md-icon>
-                  评论
-                </md-button>
-              </md-card-actions>
             </div>
           </div>
+          <md-card-actions v-if="!(!form.reply_content||form.reply_id!=comment.id)" style="float: left">
+            <md-field>
+              <label>{{form.reply_content?form.reply_content:'评论.....'}}</label>
+              <md-input maxlength="50" v-model="form.text"></md-input>
+            </md-field>
+            <md-button class="md-primary" v-on:click="addComment">
+              <md-icon>done</md-icon>
+              评论
+            </md-button>
+          </md-card-actions>
         </div>
       </div>
       <md-card-actions>
@@ -74,9 +74,9 @@
         form: {
           fund_id: null,
           manager_id: null,
-          text: '',
+          text: null,
           reply_id: null,
-          reply_content: '',
+          reply_content: null,
           reply_user_id: null,
           rank_id:null
         },
@@ -139,7 +139,6 @@
           if(_this.end_page == 0){
             _this.end_page = 1
           }
-
         })
       }
     },

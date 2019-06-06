@@ -14,11 +14,17 @@ import Register from '@/pages/user/Register'
 import ForgetPayPsw from '@/pages/user/ForgetPayPsw'
 import ForgetPsw from '@/pages/user/ForgetPsw'
 import Notification from '@/pages/user/Notification'
+import Root from '@/pages/root/Root'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/root',
+      name: 'Root',
+      component: Root
+    },
     {
       path: '/',
       name: 'Index',

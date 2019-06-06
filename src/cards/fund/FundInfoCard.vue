@@ -234,7 +234,7 @@
     methods: {
       findByStockId(stockId) {
         let _this = this;
-        this.$myapi.get("/fund/by/" + stockId, {}, function (res) {
+        this.$myapi.get("/fund/general/by/" + stockId, {}, function (res) {
           _this.see_flag = true;
           _this.funds_for_stock = res.data;
           for (let i = 0; i < _this.funds_for_stock.length; i++) {

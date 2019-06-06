@@ -25,10 +25,12 @@
       ManagerProducts,
       ManagerCard,
       CommentCard
+    },
+    created() {
+      this.$myapi.returnTop("top")
     }
   }
 </script>
 
 <style scoped>
-
 </style>

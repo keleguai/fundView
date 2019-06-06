@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="md-layout md-gutter md-alignment-top-center" style="margin-top: 40px">
-      <div class="md-layout  md-gutter md-alignment-top-center">
+    <div class="md-layout md-gutter md-alignment-top-center" style="margin-top: 40px;padding-top: 0!important;">
+      <div class="md-layout  md-gutter md-alignment-top-center" style="padding-top: 0!important;">
         <div class="md-layout-item md-large-size-70 md-medium-size-70 md-small-size-100 md-xsmall-size-100">
           <LoginCard/>
         </div>

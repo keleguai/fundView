@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="background: url(/static/bk/bk.png) repeat-x #fff;">
 
     <md-dialog :md-active.sync="cancelDialogShow" class="md-elevation-5"
                :style="$store.state.isAndroid==true?'width:100%':'width:40%'">
@@ -85,7 +85,7 @@
     </md-dialog>
     <div class="md-layout md-alignment-top-center md-gutter">
       <div
-        class="md-layout-item md-large-size-20 md-medium-size-20 md-size-20 md-small-size-100 md-xsmall-size-100">
+        class="md-layout-item md-large-size-25 md-medium-size-25 md-size-25 md-small-size-100 md-xsmall-size-100">
         <md-list>
           <md-list-item style="border-bottom: 1px solid #f4f4f4;">
             <md-icon class="md-primary" v-show="user_flag">done</md-icon>
@@ -103,9 +103,10 @@
                @click="show_sell(1)" href="javascript:void(0)">卖出记录</a>
           </md-list-item>
         </md-list>
+        <UserCard style="margin-top: 16px"/>
       </div>
 
-      <div class="md-layout-item md-large-size-55 md-medium-size-55 md-size-55 md-small-size-100 md-xsmall-size-100"
+      <div class="md-layout-item md-large-size-50 md-medium-size-50 md-size-50 md-small-size-100 md-xsmall-size-100"
       >
         <md-card style="margin-top: 0px">
           <md-card-content id="top">
@@ -142,11 +143,12 @@
                   <span v-show="user_flag">已有基金</span>
                 </h1>
                 <template v-if="!funds.length">
-                  <md-empty-state
-                    md-icon="refresh"
-                    md-label="无结果"
-                    md-description="或许被小可爱吃掉了">
-                  </md-empty-state>
+                  <div style="    text-align: center;
+    background: #f4f4f4;
+    margin: 20px;
+    font: 400 14px/40px STHeiti,'Microsoft Yahei';
+    color: #999;
+    cursor: pointer;">暂时没有可显示的内容哦</div>
                 </template>
                 <template v-else v-for="(fund,index) in funds">
                   <div class="md-layout md-gutter md-alignment-top-center"
@@ -195,7 +197,7 @@
                     </div>
                   </div>
                 </template>
-                <md-card-actions>
+                <md-card-actions v-if="funds.length">
                   <md-field :class="$myapi.isMoreThanLastPage(page,end_page)">
                     <label>{{page}}页/{{end_page}}页</label>
                     <md-input v-model="page" type="number"></md-input>
@@ -218,9 +220,12 @@
 </template>
 
 <script>
-
+  import UserCard from '../../cards/user/UserCard'
   export default {
     name: 'HelloWorld',
+    components:{
+      UserCard
+    },
     data() {
       return {
         yestodayGetMoney: 0,
@@ -373,6 +378,7 @@
         this.select_buy_flag = false;
         this.user_flag = false;
         this.fund_flag = true;
+        _this.page = page
         this.$myapi.get("/sell_order/show_sell/" + page, {}, function (res) {
           if (res.data.list != null)
             _this.funds = res.data.list;
@@ -465,6 +471,7 @@
 
   .md-card {
     box-shadow: 0 0 0 white;
+    border: 1px solid #ebebeb;
   }
 
 </style>

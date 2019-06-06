@@ -1,7 +1,7 @@
 <template>
   <div>
     <!--基金模块-->
-    <div class="md-layout md-alignment-top-center md-gutter">
+    <div class="md-layout md-alignment-top-center md-gutter" >
       <!--<div-->
         <!--class="md-layout-item md-large-size-15 md-medium-size-15 md-size-15 md-small-size-100 md-xsmall-size-100" style="margin-top: 20px">-->
         <!--<md-list>-->
@@ -74,7 +74,7 @@
           <div class="md-layout-item md-large-size-35 md-medium-size-35 md-small-size-35 md-xsmall-size-35" style="padding: 0">
             <md-card-header style="padding: 0">
               <a style="text-underline: none;color: #666" :href="'/#/fund/'+fund.fundId">
-                <md-card-media md-ratio="1:1" style="margin: 0">
+                <md-card-media md-ratio="1:1" style="margin: 0;border: 1px solid #e8e8e8">
                   <img :src="fund.photo" style="width: 100%"/>
                 </md-card-media>
               </a>
@@ -125,7 +125,7 @@
       getPriorityFund() {
         let _this = this;
         // _this.$loading.show()
-        this.$myapi.get('/fund/priority', null, function (res) {
+        this.$myapi.get('/fund/general/priority', null, function (res) {
           _this.funds = res.data;
           for (let i = 0; i < _this.funds.length; i++) {
             _this.funds[i].managerNames = _this.funds[i].managerNames.split("-");
@@ -137,7 +137,7 @@
       getNormalFunds() {
         let _this = this;
         // _this.$loading.show()
-        this.$myapi.get('/fund/list/1/10', null, function (res) {
+        this.$myapi.get('/fund/general/list/1/10', null, function (res) {
           _this.fundsList = res.data.list;
           for (let i = 0; i < _this.fundsList.length; i++) {
             _this.fundsList[i].managerNames = _this.fundsList[i].managerNames.split("-");
@@ -213,7 +213,7 @@
   .md-card {
     margin-bottom: 20px;
     border-radius: 5px;
-    box-shadow: 0 0 0 white;
+    box-shadow: none;
   }
   .md-gutter, .md-layout{
     margin-left: 0!important;
