@@ -1,218 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0749939c-5138-4a24-970b-20ebfc7348b3" name="Default Changelist" comment="解决页面跳转的问题">
-      <change afterPath="$PROJECT_DIR$/static/stock/00005.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/000069.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/000333.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/000338.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/000402.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/000558.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/000568.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/000625.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/000651.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/000661.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/000681.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/000723.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/000768.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/000858.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/000860.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/000876.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/000895.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/001979.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002007.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002013.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002019.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002024.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002025.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002027.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002044.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002142.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002146.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002152.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002174.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002179.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002202.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002230.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002271.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002281.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002299.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002304.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002343.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002384.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002415.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002422.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002425.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002439.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002475.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002555.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002572.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002594.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002602.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002624.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002714.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002737.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002739.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002841.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/002851.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/00570.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/00696.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/00700.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/00880.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/00939.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/01299.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/01385.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/01398.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/01928.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/02238.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/02318.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/02382.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/02588.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/02869.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/03808.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/03888.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/300005.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/300012.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/300015.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/300031.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/300033.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/300059.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/300113.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/300122.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/300124.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/300133.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/300137.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/300142.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/300168.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/300232.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/300251.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/300253.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/300271.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/300357.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/300369.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/300498.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/300550.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600004.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600038.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600048.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600050.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600066.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600079.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600085.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600104.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600118.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600136.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600138.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600157.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600158.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600201.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600297.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600315.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600383.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600519.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600535.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600570.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600588.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600637.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600690.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600703.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600760.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600763.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600792.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600809.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600886.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600887.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600893.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600967.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600971.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600977.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/600985.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/601021.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/601111.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/601336.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/601888.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/601933.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/601966.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/601989.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/603019.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/603288.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/603338.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/603345.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/603377.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/603444.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/603708.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/603882.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/603883.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/603885.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/603986.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/AAPL.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/BABA.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/BIDU.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/BILI.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/EDU.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/ITUB.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/JD.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/MSFT.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/NTES.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/PDD.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/QTT.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/RACE.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/W03690.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/XLNX.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/YY.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stock/default_stock.jpg" afterDir="false" />
+    <list default="true" id="0749939c-5138-4a24-970b-20ebfc7348b3" name="Default Changelist" comment="增加管理员">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/001592.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/dist/static/001592.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/100055.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/dist/static/100055.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/501001.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/dist/static/501001.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/519931.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/dist/static/519931.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/css/app.5b76309162ce0db9f6882feecc85fd6f.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/css/app.5b76309162ce0db9f6882feecc85fd6f.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/app.dc00136a7106f3e34053.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/app.dc00136a7106f3e34053.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/manifest.2ae2e69a05c33dfc65f8.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/static/js/manifest.2ae2e69a05c33dfc65f8.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/vendor.5e299601b75b75e32123.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/vendor.5e299601b75b75e32123.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/style/Live2D" beforeDir="false" afterPath="$PROJECT_DIR$/dist/static/style/Live2D" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cards/Manager/ManagersScrollCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/Manager/ManagersScrollCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cards/fund/FundCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/fund/FundCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cards/fund/FundInfoCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/fund/FundInfoCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cards/fund/FundListCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/fund/FundListCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cards/fund/FundSmallCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/fund/FundSmallCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cards/fund/FundsScrollCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/fund/FundsScrollCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cards/normal/CommentCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/normal/CommentCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cards/normal/DialogCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/normal/DialogCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cards/stock/StocksScrollCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/stock/StocksScrollCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cards/user/EditCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/user/EditCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cards/user/ForgetPayPswCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/user/ForgetPayPswCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cards/user/ForgetPswCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/user/ForgetPswCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cards/user/LoginCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/user/LoginCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cards/user/UserCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/user/UserCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/fund/AllFund.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/fund/AllFund.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/fund/Fund.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/fund/Fund.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/manager/Manager.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/manager/Manager.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/other/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/other/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/other/Rank.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/other/Rank.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/stock/StopStockTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/stock/StopStockTable.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/user/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/user/MyMoney.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user/MyMoney.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/user/Notification.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user/Notification.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/components/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/components/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/000063.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/000063.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/001592.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/001592.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/001837.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/001837.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/001972.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/001972.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/002443.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/002443.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/003053.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/003053.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/100055.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/100055.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/161225.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/161225.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/501001.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/501001.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/519931.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/519931.jpg" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -271,7 +61,7 @@
         <entry file="file://$PROJECT_DIR$/src/cards/user/NotificationCard.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-428">
-              <caret line="23" column="13" lean-forward="true" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#md-card-content#0;n#md-card#0;n#template#0;n#!!top" expanded="true" />
               </folding>
@@ -283,7 +73,7 @@
         <entry file="file://$PROJECT_DIR$/src/cards/user/LoginCard.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="95">
-              <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+              <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
               <folding>
                 <element signature="n#style#0;n#md-card#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#md-card-header#0;n#md-card#0;n#md-card#0;n#template#0;n#!!top" expanded="true" />
@@ -297,8 +87,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cards/normal/DialogCard.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+            <state relative-caret-position="37">
+              <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -793,7 +583,7 @@
       <workItem from="1559734491663" duration="3518000" />
       <workItem from="1559739594701" duration="7771000" />
       <workItem from="1559754573537" duration="6791000" />
-      <workItem from="1559783893080" duration="2278000" />
+      <workItem from="1559783893080" duration="3189000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1558404929468</created>
@@ -816,11 +606,18 @@
       <option name="project" value="LOCAL" />
       <updated>1559533750834</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="增加管理员">
+      <created>1559787545721</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1559787545721</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="650444000" />
+    <option name="totallyTimeSpent" value="651355000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
@@ -835,7 +632,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891247" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49962208" visible="true" weight="0.32625994" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49962208" weight="0.32625994" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -843,7 +640,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32891247" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3275862" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3275862" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50037795" side_tool="true" weight="0.32625994" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.32891247" />
@@ -866,7 +663,8 @@
     <MESSAGE value="initial" />
     <MESSAGE value="初始化一个垃圾版本" />
     <MESSAGE value="解决页面跳转的问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="解决页面跳转的问题" />
+    <MESSAGE value="增加管理员" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加管理员" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/cards/fund/FundInfoCard.vue">
@@ -1409,7 +1207,7 @@
     <entry file="file://$PROJECT_DIR$/src/cards/user/NotificationCard.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-428">
-          <caret line="23" column="13" lean-forward="true" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#md-card-content#0;n#md-card#0;n#template#0;n#!!top" expanded="true" />
           </folding>
@@ -1419,7 +1217,7 @@
     <entry file="file://$PROJECT_DIR$/src/cards/user/LoginCard.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
-          <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
           <folding>
             <element signature="n#style#0;n#md-card#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#md-card-header#0;n#md-card#0;n#md-card#0;n#template#0;n#!!top" expanded="true" />
@@ -1431,8 +1229,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cards/normal/DialogCard.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+        <state relative-caret-position="37">
+          <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
         </state>
       </provider>
     </entry>
